@@ -43,7 +43,7 @@ const ShopMate = () => {
     setLoading(true);
     setShowWelcome(false);
     try {
-      const response = await fetch(`http://localhost:4000/api/products?q=${encodeURIComponent(query)}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/products?q=${encodeURIComponent(query)}`);
       const data = await response.json();
       const fetchedProducts = data.products || [];
       setProducts(fetchedProducts);
@@ -593,5 +593,6 @@ const ShopMate = () => {
     </div>
   );
 };
+
 
 export default ShopMate;
